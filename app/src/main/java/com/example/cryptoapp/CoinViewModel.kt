@@ -63,7 +63,7 @@ class CoinViewModel(application: Application) : AndroidViewModel(application) {
                 result.add(priceInfo)
             }
         }
-        return listOf()
+        return result
     }
 
     override fun onCleared() {
