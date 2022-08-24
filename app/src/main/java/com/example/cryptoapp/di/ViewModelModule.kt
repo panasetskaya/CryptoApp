@@ -1,13 +1,17 @@
 package com.example.cryptoapp.di
 
-import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModel
+import com.example.cryptoapp.domain.ViewModelKey
 import com.example.cryptoapp.presentation.CoinViewModel
 import dagger.Binds
 import dagger.Module
+import dagger.multibindings.IntoMap
 
 @Module
 interface ViewModelModule {
 
     @Binds
-    fun bindViewModel(impl: CoinViewModel): AndroidViewModel
+    @IntoMap
+    @ViewModelKey(CoinViewModel::class)
+    fun bindViewModel(impl: CoinViewModel): ViewModel
 }
