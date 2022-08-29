@@ -1,14 +1,14 @@
 package com.example.cryptoapp.data.workers
 
 import android.content.Context
-import androidx.work.*
-import com.example.cryptoapp.data.database.AppDatabase
+import androidx.work.CoroutineWorker
+import androidx.work.OneTimeWorkRequest
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkerParameters
 import com.example.cryptoapp.data.database.CoinInfoDao
 import com.example.cryptoapp.data.mapper.CoinMapper
-import com.example.cryptoapp.data.network.ApiFactory
 import com.example.cryptoapp.data.network.ApiService
 import kotlinx.coroutines.delay
-import java.lang.Exception
 
 class RefreshDataWorker(
     context: Context,
@@ -16,7 +16,7 @@ class RefreshDataWorker(
     private val dao: CoinInfoDao,
     private val apiService: ApiService,
     private val mapper: CoinMapper
-): CoroutineWorker(context,workerParameters) {
+) : CoroutineWorker(context, workerParameters) {
 
     override suspend fun doWork(): Result {
         while (true) {
