@@ -1,4 +1,4 @@
-package com.example.cryptoapp.domain
+package com.example.cryptoapp.di
 
 import androidx.lifecycle.ViewModel
 import dagger.MapKey
